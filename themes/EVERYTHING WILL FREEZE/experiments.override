@@ -1,0 +1,5 @@
+# Native classic home and player, verified against the installed Yandex client.
+# Next Music reads this file before applying the theme.
+WebNextNewWaveTab = "default"
+WebNextNewWaveTabFeedbackForm = "default"
+WebNextMainPlayerAnimation = "default"

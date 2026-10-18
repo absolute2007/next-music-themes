@@ -1,0 +1,21 @@
+{
+  "name": "EVERYTHING WILL FREEZE",
+  "type": "theme",
+  "author": "dundut",
+  "description": "Чёрно-белая тема с преломляющими панелями и классической главной страницей.",
+  "image": "icon.png",
+  "icon": "icon.png",
+  "logo": "logo.png",
+  "banner": "assets/everything-will-freeze.png",
+  "css": "style.css",
+  "script": "script.js",
+  "allowedUrls": [
+    "http://127.0.0.1:2007/"
+  ],
+  "tags": [
+    "monochrome",
+    "classic",
+    "liquid-glass",
+    "everything-will-freeze"
+  ]
+}

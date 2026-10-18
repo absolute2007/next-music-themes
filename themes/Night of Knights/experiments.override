@@ -1,0 +1,8 @@
+# Night of Knights: возвращает старый интерфейс «Моей волны» (контрольная группа экспериментов).
+# Next Music читает этот файл при старте и применяет значения поверх настроек.
+WebNextNewWaveTab = "default"
+WebNextNewWaveTabFeatCover = "default"
+WebNextNewWaveTabFeedbackForm = "default"
+WebNextNewWaveWizard = "default"
+WebNextNdaLabelOnWaveTab = "default"
+WebNextMainPlayerAnimation = "default"

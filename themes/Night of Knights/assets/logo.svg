@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+	<defs>
+		<linearGradient id="nok-moon" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#b9c8ff"/>
+		</linearGradient>
+		<linearGradient id="nok-blade" x1="0" y1="1" x2="1" y2="0">
+			<stop offset="0" stop-color="#b3002a"/>
+			<stop offset="0.55" stop-color="#ff2d55"/>
+			<stop offset="1" stop-color="#ffd0da"/>
+		</linearGradient>
+		<mask id="nok-crescent">
+			<rect width="64" height="64" fill="#fff"/>
+			<circle cx="40" cy="25" r="20" fill="#000"/>
+		</mask>
+	</defs>
+	<!-- Лунный серп -->
+	<circle cx="30" cy="32" r="24" fill="url(#nok-moon)" mask="url(#nok-crescent)"/>
+	<!-- Метательный нож: клинок, гарда, рукоять с кольцом -->
+	<g transform="rotate(-45 32 32)">
+		<path d="M32 3 L36.2 30 L32 33 L27.8 30 Z" fill="url(#nok-blade)"/>
+		<path d="M32 3 L32 33" stroke="#fff" stroke-opacity="0.55" stroke-width="0.8"/>
+		<rect x="24.5" y="32" width="15" height="3" rx="1.5" fill="#eef3ff"/>
+		<rect x="30.4" y="35" width="3.2" height="16" rx="1.4" fill="#2a2f4a" stroke="#eef3ff" stroke-width="1"/>
+		<circle cx="32" cy="55" r="3.6" fill="none" stroke="#eef3ff" stroke-width="1.6"/>
+	</g>
+	<!-- Искра, как блик в глазах -->
+	<path d="M48 12 L49.3 16.7 L54 18 L49.3 19.3 L48 24 L46.7 19.3 L42 18 L46.7 16.7 Z" fill="#ff2d55"/>
+	<circle cx="48" cy="18" r="1.2" fill="#fff"/>
+</svg>

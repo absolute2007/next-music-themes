@@ -1,0 +1,7 @@
+Tool: built-in image_gen, edit mode.
+Input: original.jpg (assets/original.jpg)
+Output: assets/everything-will-freeze.png
+
+Edit target: supplied ewf.jpg. Restore and upscale this exact black and white ink illustration to a crisp 2048x2048 square. Preserve the original composition, central character's face, pose, clothing and silhouette, dense radial abstract industrial black ink shapes and white negative space. Remove JPEG artifacts and jagged low resolution edges, restore clean sharp fine ink lines. Strict neutral black and white, no color, no additional subjects, no text, no watermark, no redesign. This is a faithful restoration for a music app wallpaper.
+
+Actual returned dimensions: 1254x1254. Requested dimensions were not guaranteed by the tool. Original is preserved separately.

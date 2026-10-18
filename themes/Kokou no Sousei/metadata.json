@@ -1,0 +1,22 @@
+{
+  "name": "Kokou no Sousei",
+  "type": "theme",
+  "author": "dundut",
+  "description": "Тёмная тема в стиле жидкого стекла по арту Kokou no Sousei с кристальными преломляющими панелями, классической главной, баннером Моей волны и классическим трек-баром.",
+  "image": "icon.png",
+  "icon": "icon.png",
+  "logo": "logo.png",
+  "banner": "banner.png",
+  "css": "style.css",
+  "script": "script.js",
+  "allowedUrls": [
+    "http://127.0.0.1:2007/"
+  ],
+  "tags": [
+    "kokou-no-sousei",
+    "liquid-glass",
+    "classic",
+    "dark",
+    "refraction"
+  ]
+}

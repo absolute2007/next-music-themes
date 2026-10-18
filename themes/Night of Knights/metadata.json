@@ -1,0 +1,21 @@
+{
+  "name": "Night of Knights",
+  "type": "theme",
+  "author": "dundut",
+  "description": "Сакуя под луной из osu! карты beatMARIO - Night of Knights: liquid glass, старый интерфейс и глаза, которые светятся от музыки.",
+  "image": "icon.jpg",
+  "banner": "image.jpg",
+  "css": "style.css",
+  "script": "script.js",
+  "allowedUrls": [
+    "http://127.0.0.1:2007/"
+  ],
+  "tags": [
+    "touhou",
+    "sakuya",
+    "osu",
+    "liquid-glass",
+    "audio-reactive",
+    "classic"
+  ]
+}

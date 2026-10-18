@@ -1,0 +1,17 @@
+# Локальные файлы клиента и редактора
+.store-cache.json
+.logo-cache/
+.git-release
+.git-commit
+*.log
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Секреты никогда не коммитим
+.env
+*.env
+*token*
+*secret*
+Config.lua

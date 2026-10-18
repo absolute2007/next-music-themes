@@ -1,0 +1,543 @@
+/* CYBER_GLITCH_THEME — Next Music. No external asset hosts. */
+:root {
+  --cg-art: url("http://127.0.0.1:2007/assets/bg.jpg?name=CYBER%20GLITCH");
+  --cg-vibe: url("http://127.0.0.1:2007/assets/vibe.jpg?name=CYBER%20GLITCH");
+}
+html[data-cg-theme], html[data-cg-theme] body, html[data-cg-theme] .ym-dark-theme, html[data-cg-theme] .ym-light-theme {
+  color-scheme: dark;
+  --cg-cyan: #00e5ff;
+  --cg-cyan-hover: #38bdf8;
+  --cg-cyan-glow: rgba(0, 229, 255, 0.45);
+  --cg-cyan-subtle: rgba(0, 229, 255, 0.18);
+  --cg-white: #f8fafd;
+  --cg-muted: #8ea5b8;
+  --cg-ink: #02050a;
+  --cg-surface: #070d18;
+  --cg-glass-tint: rgba(4, 9, 18, 0.72);
+  --cg-glass-edge: rgba(0, 229, 255, 0.28);
+  --cg-glass-shadow: inset 0 1px 2px rgba(0, 229, 255, 0.45), inset 1px 0 2px rgba(0, 229, 255, 0.16), inset -1px -1px 2px rgba(0, 229, 255, 0.20), 0 6px 22px rgba(0, 0, 0, 0.70);
+  
+  --ym-background-color-primary-enabled-basic: #02050a;
+  --ym-background-color-primary-enabled-content: #070d18;
+  --ym-background-color-primary-enabled-popover: #091220;
+  --ym-background-color-secondary-enabled-blur: #091220;
+  --ym-controls-color-primary-default-enabled: #00e5ff;
+  --ym-controls-color-primary-default-hovered: #38bdf8;
+  --ym-controls-color-primary-default-pressed: #0284c7;
+  --ym-controls-color-primary-text-enabled: #8ea5b8;
+  --ym-controls-color-primary-text-enabled_variant: #f8fafd;
+  --ym-controls-color-primary-text-hovered: #00e5ff;
+  --ym-controls-color-primary-text-hovered_variant: #ffffff;
+  --ym-controls-color-primary-on_default-enabled: #02050a;
+  --ym-controls-color-secondary-text-enabled: #f8fafd;
+  --ym-controls-color-secondary-on_default-enabled: #00e5ff;
+  --ym-controls-color-primary-outline-selected_stroke: #00e5ff;
+  --ym-controls-color-secondary-default-enabled: #101c30;
+  --ym-controls-color-secondary-default-hovered: #182844;
+  --ym-text-color-primary: #f8fafd;
+  --ym-text-color-secondary: #8ea5b8;
+  --ym-text-color-primary-enabled-basic: #f8fafd;
+  --ym-text-color-secondary-enabled-basic: #8ea5b8;
+  --ym-slider-color-primary-enabled: rgba(0, 229, 255, 0.20);
+  --ym-slider-color-primary-progress: #00e5ff;
+  --ym-logo-color-primary-text: #00e5ff;
+  --ym-surface-color-primary-enabled-list: rgba(0, 229, 255, 0.05);
+  --ym-layout-background-color: transparent;
+  --ym-layout-border: none;
+  --ym-layout-border-radius: 12px;
+  background: #02050a;
+}
+html[data-cg-theme] body {
+  background: linear-gradient(rgba(3, 7, 14, 0.62), rgba(2, 5, 10, 0.76)), var(--cg-art) center / cover fixed no-repeat, #02050a !important;
+  color: var(--cg-white);
+  font-family: "Yandex Sans Text", Arial, sans-serif;
+}
+html[data-cg-theme] :is([class*="CommonLayout_root"], [class*="DefaultLayout_root"], [class*="Content_root"]) {
+  background: transparent !important;
+}
+html[data-cg-theme] [class*="DefaultLayout_root"] {
+  --gap-between-contents: 10px;
+  gap: 10px !important;
+  padding: 38px 12px 12px !important;
+  box-sizing: border-box;
+}
+@media (min-width: 768px) {
+  html[data-cg-theme] [class*="DefaultLayout_root"] {
+    grid-template: "navbar content" minmax(0, 1fr) "playerbar playerbar" auto "barBelow barBelow" auto / auto minmax(0, 1fr) !important;
+  }
+}
+html[data-cg-theme] [class*="Navbar_root"] {
+  --navbar-full-width: 210px;
+  --navbar-collapsed-width: 72px;
+  border-radius: 14px;
+}
+html[data-cg-theme] [class*="NavbarDesktop_root"] {
+  background: transparent !important;
+  padding: 16px 0 12px !important;
+  box-sizing: border-box;
+}
+html[data-cg-theme] [class*="Content_main"] {
+  background: rgba(5, 10, 20, 0.92) !important;
+  border: 1px solid rgba(0, 229, 255, 0.16) !important;
+  border-radius: 12px !important;
+  min-width: 0;
+  min-height: 0;
+}
+html[data-cg-theme] :is([class*="NavbarDesktop_navigation"], [class*="NavbarDesktop_pinsList"]) { background: transparent !important; }
+html[data-cg-theme] :is([class*="NavigationLink_root"], [class*="PinItem_root"]) { border-radius: 7px !important; }
+html[data-cg-theme] :is([class*="NavigationLink_root"], [class*="PinItem_root"]):hover { background: rgba(0, 229, 255, 0.08) !important; }
+html[data-cg-theme] [aria-current="page"] { color: #00e5ff !important; }
+html[data-cg-theme] :is([class*="PlayerBar_root"], [class*="PlayerBarDesktopWithBackgroundProgressBar_root"]) {
+  margin-block-start: 0 !important;
+  border-radius: 14px !important;
+}
+html[data-cg-theme] [class*="PlayerBarDesktopWithBackgroundProgressBar_root"] { background: transparent !important; }
+html[data-cg-theme] [class*="PlayerBarDesktopWithBackgroundProgressBar_cover"] { border-radius: 6px !important; }
+
+/* Liquid glass optics for panels */
+html[data-cg-theme] .cg-liquid {
+  position: relative;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  isolation: auto;
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+  z-index: 0;
+}
+html[data-cg-theme] .cg-liquid::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+  background: var(--cg-glass-tint);
+  border: 1px solid var(--cg-glass-edge);
+  box-shadow: var(--cg-glass-shadow);
+  backdrop-filter: var(--cg-refraction-filter, none);
+  -webkit-backdrop-filter: var(--cg-refraction-filter, none);
+}
+html[data-cg-theme] .cg-liquid::after { content: none !important; background: none !important; }
+html[data-cg-theme][data-cg-optics="off"] .cg-liquid::before { backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+/* Native desktop layout, collapsed pins, portals and fullscreen surfaces */
+html[data-cg-theme] :is([class*="DefaultLayout_navbar"], [class*="Content_root__"]) {
+  margin-block: 0 !important;
+  align-self: stretch;
+  min-height: 0;
+}
+html[data-cg-theme] [class*="Navbar_root__"] { box-sizing: border-box; z-index: 10; overflow: visible !important; }
+html[data-cg-theme] [class*="PlayerBar_root__"] { z-index: 20; overflow: visible !important; }
+html[data-cg-theme] [class*="PlayerBarDesktopWithBackgroundProgressBar_root__"] { overflow: visible !important; }
+html[data-cg-theme] [class*="NavbarDesktop_collapseButton"] { display: none !important; }
+html[data-cg-theme] [class*="NavbarDesktop_navigation_new"] {
+  align-self: center !important;
+  margin-inline: 0 !important;
+  width: 100%;
+}
+html[data-cg-theme] [class*="NavbarDesktop_scrollableContent"] { scrollbar-gutter: auto; }
+html[data-cg-theme] [class*="Navbar_root_collapsed"] :is([class*="PinsList_root"], [class*="PinsList_content"]) {
+  padding-inline: 0 !important;
+  scrollbar-gutter: auto !important;
+  width: 100%;
+  box-sizing: border-box;
+}
+html[data-cg-theme] [class*="Navbar_root_collapsed"] :is([class*="Pin_link__"], [class*="Pin_root_withoutLink"]) {
+  justify-content: center !important;
+  padding-inline: 4px !important;
+  gap: 0 !important;
+  box-sizing: border-box;
+}
+html[data-cg-theme] [class*="Navbar_root_collapsed"] :is([class*="Pin_meta__"], [class*="Pin_info__"], [class*="Pin_contextMenu__"]) { display: none !important; }
+html[data-cg-theme] [class*="Navbar_root_collapsed"] [class*="Pin_cover__"] {
+  flex: 0 0 40px;
+  width: 40px; min-width: 40px; max-width: 40px;
+  height: 40px; min-height: 40px; max-height: 40px;
+}
+html[data-cg-theme] [class*="NavbarDesktop_logoWrapper"] { max-width: 100%; }
+
+/* Vibe block (Моя волна) with cyberpunk visual */
+html[data-cg-theme] [class*="MainPage_vibe__"] {
+  height: 300px !important;
+  min-height: 0 !important;
+  margin: 16px 16px 0 !important;
+}
+html[data-cg-theme] [class*="MainPage_vibeWidgetContainer"] { height: 100% !important; min-height: 0 !important; }
+html[data-cg-theme] [class*="VibeBlock_root__"] {
+  min-height: 0 !important;
+  height: 100%;
+  border-radius: 10px;
+  background: transparent !important;
+  align-items: center !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+html[data-cg-theme] [class*="VibeBlock_root__"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(3, 7, 14, 0.90), rgba(3, 7, 14, 0.45) 50%, rgba(3, 7, 14, 0.80)), var(--cg-vibe) center / cover no-repeat;
+  mask-image: linear-gradient(#000 80%, transparent);
+  border-radius: inherit;
+  pointer-events: none;
+}
+html[data-cg-theme] [class*="VibeBlock_root__"]::after { content: none !important; }
+html[data-cg-theme] [class*="VibeBlock_vibeAnimation"] { display: none !important; }
+html[data-cg-theme] [class*="VibeBlock_controls"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center;
+  width: 100% !important;
+  gap: 12px;
+  margin: 0 !important;
+  padding: 16px !important;
+  box-sizing: border-box;
+  z-index: 1;
+}
+html[data-cg-theme] :is([class*="VibeBlock_playButton"], [class*="VibeBlock_playButton"] *),
+html[data-cg-theme] :is([class*="VibeBlock_playButton"], [class*="VibeBlock_playButton"] *)::before,
+html[data-cg-theme] :is([class*="VibeBlock_playButton"], [class*="VibeBlock_playButton"] *)::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+html[data-cg-theme] [class*="VibeBlock_playButton"] {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  mix-blend-mode: normal !important;
+  font-size: clamp(24px, 2.6vw, 36px) !important;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9), 0 0 14px rgba(0, 229, 255, 0.6) !important;
+}
+html[data-cg-theme] [class*="VibeBlock_playButton"] * {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+html[data-cg-theme] [class*="VibeBlock_playButton"]:hover {
+  filter: brightness(1.25);
+  text-shadow: 0 2px 20px #000, 0 0 20px rgba(0, 229, 255, 0.9) !important;
+}
+html[data-cg-theme] [class*="VibeBlock_settingsButton"] { color: #8ea5b8 !important; }
+html[data-cg-theme] [class*="MainPage_landing"] { padding-top: 12px; }
+
+/* Cards & lists */
+html[data-cg-theme] :is([class*="HorizontalCard_root"], [class*="TrackContainer_root"]) { border-radius: 6px !important; }
+html[data-cg-theme] :is([class*="HorizontalCard_root"], [class*="TrackContainer_root"]):hover { background: rgba(0, 229, 255, 0.08) !important; }
+html[data-cg-theme] :is([class*="PlaylistCard_cover"], [class*="AlbumCard_cover"]) { border-radius: 6px !important; }
+html[data-cg-theme] :is([class*="PlaylistCard_root"], [class*="AlbumCard_root"]) { background: transparent !important; box-shadow: none !important; }
+html[data-cg-theme] :is([class*="PlaylistPage_root"], [class*="AlbumPage_root"], [class*="ArtistPage_root"], [class*="SearchPage_root"], [class*="CollectionPage_root"]) { background-color: transparent !important; }
+html[data-cg-theme] :is([class*="FullscreenPlayerDesktop_root"], [class*="PlayQueue_root"]) { background: rgba(3, 7, 14, 0.95) !important; }
+
+/* User profile */
+html[data-cg-theme] [class*="UserProfile_dialog__"] {
+  z-index: 700 !important;
+  max-height: calc(100dvh - 100px) !important;
+  overflow-y: auto;
+}
+html[data-cg-theme] [class*="UserProfile_dialog__"] iframe { max-height: calc(100dvh - 110px) !important; }
+
+/* Volume Slider with 2-color division */
+html[data-cg-theme] [class*="ChangeVolume_sliderContainer__"] { z-index: 400 !important; }
+html[data-cg-theme] [class*="ChangeVolume_wrapperSlider__"] {
+  background: rgba(7, 13, 24, 0.96) !important;
+  border: 1px solid var(--cg-glass-edge) !important;
+  box-shadow: var(--cg-glass-shadow);
+}
+html[data-cg-theme] [class*="ChangeVolume_root"] {
+  --ym-slider-color-primary-enabled: rgba(0, 229, 255, 0.20) !important;
+  --ym-slider-color-primary-hovered: rgba(0, 229, 255, 0.32) !important;
+  --ym-slider-color-primary-progress: #00e5ff !important;
+}
+html[data-cg-theme] [class*="ChangeVolume_slider"]::-webkit-slider-runnable-track {
+  background: rgba(0, 229, 255, 0.20) !important;
+  border-radius: 9999px !important;
+  border: none !important;
+}
+html[data-cg-theme] [class*="ChangeVolume_slider"]::before {
+  background-color: #00e5ff !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.5) !important;
+}
+html[data-cg-theme] [class*="ChangeVolume_slider"]::-webkit-slider-thumb {
+  background: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.8), 0 1px 4px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Modals & menus */
+html[data-cg-theme] :is([class*="VibeSettings_root__"], [class*="VibeSettingsModal_root__"], [class*="TrackLyricsModal_root__"], [class*="TrackModal_root__"], [class*="QualitySettingsModal_root__"], [class*="PopoverWithActions_root__"], [role="menu"], [role="listbox"]) {
+  background: rgba(7, 13, 24, 0.95) !important;
+  color: #f8fafd !important;
+  border: 1px solid rgba(0, 229, 255, 0.28) !important;
+  border-radius: 14px !important;
+  box-shadow: inset 0 1px 1px rgba(0, 229, 255, 0.4), 0 12px 36px rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: var(--cg-refraction-filter, none) !important;
+  -webkit-backdrop-filter: var(--cg-refraction-filter, none) !important;
+}
+html[data-cg-theme] :is([role="menuitem"], [role="option"]):is(:hover, :focus-visible) { background-color: rgba(0, 229, 255, 0.12) !important; color: #00e5ff !important; }
+html[data-cg-theme] :is([role="menuitemradio"][aria-checked="true"], [role="option"][aria-selected="true"]) { background-color: rgba(0, 229, 255, 0.20) !important; color: #00e5ff !important; }
+html[data-cg-theme] :is([class*="TrackLyricsModal_content"], [class*="TrackModalLyrics_root"]) { background: transparent !important; color: #e0f2fe; }
+
+/* Play button */
+html[data-cg-theme] [class*="PlayButton_root__"]:not([class*="VibeBlock_playButton"]) {
+  background-color: #00e5ff !important;
+  color: #02050a !important;
+}
+
+/* Fullscreen player & Lyrics */
+html[data-cg-theme] :is([class*="FullscreenPlayerDesktop_root"], [class*="FullscreenPlayerMobile_root"]) {
+  --player-average-color-background: #030712 !important;
+  background: linear-gradient(rgba(3, 7, 14, 0.85), rgba(3, 7, 14, 0.92)), var(--cg-art) center / cover !important;
+}
+html[data-cg-theme] :is([class*="PlayQueue_root__"], [class*="SyncLyrics_root__"], [class*="SyncLyrics_content__"], [class*="FullscreenPlayerDesktopContent_root"]) {
+  --player-average-color-background: #030712 !important;
+  --entity-branding-gradient-color-from: #030712 !important;
+}
+html[data-cg-theme] :is([class*="PlayQueue_root__"], [class*="SyncLyrics_content__"]) {
+  background: rgba(5, 11, 22, 0.88) !important;
+  border-inline: 1px solid rgba(0, 229, 255, 0.18);
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+html[data-cg-theme] :is([class*="PlayQueue_content__"], [class*="SyncLyrics_scroller"]) {
+  scrollbar-color: rgba(0, 229, 255, 0.4) transparent !important;
+  scrollbar-width: thin !important;
+}
+
+/* Perfect Close Button & Arrow Centering */
+@media (min-width: 768px) {
+  html[data-cg-theme] [class*="FullscreenPlayerDesktop_header__"] {
+    inset-block-start: 32px !important;
+    inset-inline-end: 24px !important;
+    padding: 8px 0 !important;
+    height: 56px;
+    box-sizing: border-box;
+    z-index: 210;
+  }
+}
+html[data-cg-theme] :is(
+  [class*="FullscreenPlayerDesktop_closeButton"],
+  [class*="FullscreenPlayer_closeButton"],
+  [class*="SyncLyrics_closeButton"],
+  [class*="PlayQueue_closeButton"],
+  [class*="TrackLyricsModal_closeButton"],
+  [class*="TrackModal_closeButton"],
+  [class*="TrackLyricsModal"] [class*="closeButton"],
+  [class*="SyncLyrics"] [class*="closeButton"],
+  [class*="PlayQueue"] [class*="closeButton"]
+):not([class*="TitleBar"]):not(.TitleBar_button):not(.TitleBar_closeButton) {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  line-height: 1 !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(0, 229, 255, 0.3) !important;
+  background: rgba(5, 11, 22, 0.75) !important;
+  backdrop-filter: none !important;
+}
+html[data-cg-theme] :is(
+  [class*="FullscreenPlayerDesktop_closeButton"],
+  [class*="FullscreenPlayer_closeButton"],
+  [class*="SyncLyrics_closeButton"],
+  [class*="PlayQueue_closeButton"],
+  [class*="TrackLyricsModal_closeButton"],
+  [class*="TrackModal_closeButton"],
+  [class*="TrackLyricsModal"] [class*="closeButton"],
+  [class*="SyncLyrics"] [class*="closeButton"],
+  [class*="PlayQueue"] [class*="closeButton"]
+):not([class*="TitleBar"]):not(.TitleBar_button):not(.TitleBar_closeButton):hover {
+  background: rgba(0, 229, 255, 0.25) !important;
+  border-color: #00e5ff !important;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.4) !important;
+}
+html[data-cg-theme] :is(
+  [class*="FullscreenPlayerDesktop_closeButton"],
+  [class*="FullscreenPlayer_closeButton"],
+  [class*="SyncLyrics_closeButton"],
+  [class*="PlayQueue_closeButton"],
+  [class*="TrackLyricsModal_closeButton"],
+  [class*="TrackModal_closeButton"],
+  [class*="TrackLyricsModal"] [class*="closeButton"],
+  [class*="SyncLyrics"] [class*="closeButton"],
+  [class*="PlayQueue"] [class*="closeButton"]
+):not([class*="TitleBar"]):not(.TitleBar_button):not(.TitleBar_closeButton) :is(div, span, [class*="Icon"]) {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform-origin: center center !important;
+}
+html[data-cg-theme] :is(
+  [class*="FullscreenPlayerDesktop_closeButton"],
+  [class*="FullscreenPlayer_closeButton"],
+  [class*="SyncLyrics_closeButton"],
+  [class*="PlayQueue_closeButton"],
+  [class*="TrackLyricsModal_closeButton"],
+  [class*="TrackModal_closeButton"],
+  [class*="TrackLyricsModal"] [class*="closeButton"],
+  [class*="SyncLyrics"] [class*="closeButton"],
+  [class*="PlayQueue"] [class*="closeButton"]
+):not([class*="TitleBar"]):not(.TitleBar_button):not(.TitleBar_closeButton) svg {
+  display: block !important;
+  margin: auto !important;
+  transform-origin: center center !important;
+  flex-shrink: 0 !important;
+  color: #00e5ff !important;
+  fill: currentColor !important;
+}
+
+@media (min-width: 768px) {
+  html[data-cg-theme] [class*="FullscreenPlayerDesktopContent_additionalContent"] {
+    inset: 96px 24px 24px auto !important;
+    width: calc(50% - 32px) !important;
+    height: auto !important;
+    transform: none !important;
+    animation: none !important;
+    background: var(--cg-glass-tint);
+    border: 1px solid var(--cg-glass-edge);
+    border-radius: 16px;
+    box-shadow: var(--cg-glass-shadow);
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  html[data-cg-theme] [class*="FullscreenPlayerDesktopContent_additionalContent"] :is([class*="PlayQueue_root__"], [class*="SyncLyrics_root__"], [class*="SyncLyrics_content__"]) {
+    position: relative !important;
+    inset: auto !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+  html[data-cg-theme] [class*="FullscreenPlayerDesktopContent_syncLyrics__"] {
+    height: 100% !important;
+    margin-block: 0 !important;
+  }
+  html[data-cg-theme] [class*="PlayQueue_root__"] { --play-queue-content-indent-vh: 0px; --play-queue-content-indent-dvh: 0px; }
+  html[data-cg-theme] [class*="PlayQueue_content__"] {
+    margin: 0 !important;
+    height: 100% !important;
+    min-height: 0;
+    padding: 24px 20px !important;
+    box-sizing: border-box;
+    scroll-padding-block: 24px;
+  }
+  html[data-cg-theme] [class*="PlayQueue_scrollContent__"] { padding-block: 0 24px !important; }
+  html[data-cg-theme] [class*="PlayQueue_root__"]::before,
+  html[data-cg-theme] [class*="PlayQueue_root__"]::after { display: none; }
+  html[data-cg-theme] [class*="FullscreenPlayerDesktopContent_syncLyricsScroller__"] {
+    padding-block: max(24px, calc((100dvh - 120px) / 2 - 48px)) !important;
+    padding-inline: 24px !important;
+    box-sizing: border-box;
+  }
+  html[data-cg-theme] [class*="FullscreenPlayerDesktopContent_syncLyricsContent__"]::before,
+  html[data-cg-theme] [class*="FullscreenPlayerDesktopContent_syncLyricsContent__"]::after { height: 32px !important; }
+}
+
+/* Generic styling */
+html[data-cg-theme] :is(:focus-visible) { outline: 2px solid #00e5ff !important; outline-offset: 4px; }
+html[data-cg-theme] ::selection { color: #02050a; background: #00e5ff; }
+html[data-cg-theme] * { scrollbar-color: rgba(0, 229, 255, 0.4) transparent; scrollbar-width: thin; }
+
+/* TitleBar: hide next text on right, center theme title and logo */
+.TitleBar_root {
+  -webkit-app-region: drag !important;
+}
+.TitleBar_root .TitleBar_nextText,
+.TitleBar_nextText,
+[class*="TitleBar_nextText"] {
+  display: none !important;
+  visibility: hidden !important;
+}
+.TitleBar_root .cg-titlebar-center {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  pointer-events: none !important;
+  -webkit-app-region: drag !important;
+  user-select: none !important;
+  z-index: 100 !important;
+}
+.TitleBar_root .cg-titlebar-logo {
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 4px !important;
+  object-fit: cover !important;
+  pointer-events: none !important;
+  box-shadow: 0 0 6px rgba(0, 229, 255, 0.5) !important;
+  border: 1px solid rgba(0, 229, 255, 0.3) !important;
+}
+.TitleBar_root .cg-titlebar-text {
+  color: #e0f7ff !important;
+  font-family: "Yandex Sans Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+  opacity: 0.95 !important;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.6), 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+}
+.TitleBar_root:not(:has(.cg-titlebar-center))::before {
+  content: "CYBER GLITCH";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #e0f7ff;
+  font-family: "Yandex Sans Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  pointer-events: none;
+  opacity: 0.95;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.6), 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Ensure TitleBar window buttons remain standard rectangular Windows controls */
+.TitleBar_root .TitleBar_button,
+.TitleBar_root .TitleBar_closeButton,
+.TitleBar_root button {
+  border-radius: 0 !important;
+  width: 2.875rem !important;
+  min-width: 2.875rem !important;
+  height: var(--nm-spacer-size-xxxl, 38px) !important;
+  min-height: var(--nm-spacer-size-xxxl, 38px) !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  background: transparent;
+}
+.TitleBar_root .TitleBar_button:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 0 !important;
+}
+.TitleBar_root .TitleBar_closeButton:hover {
+  background: #e81123 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+

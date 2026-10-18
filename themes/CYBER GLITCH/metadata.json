@@ -1,0 +1,22 @@
+{
+  "name": "CYBER GLITCH",
+  "type": "theme",
+  "author": "dundut",
+  "description": "Киберпанк-тема в стилистике Cyber Glitch с электро-циановыми акцентами, преломляющим обсидиановым стеклом и классической главной страницей.",
+  "image": "icon.png",
+  "icon": "icon.png",
+  "logo": "logo.png",
+  "banner": "banner.png",
+  "css": "style.css",
+  "script": "script.js",
+  "allowedUrls": [
+    "http://127.0.0.1:2007/"
+  ],
+  "tags": [
+    "cyberpunk",
+    "glitch",
+    "cyan",
+    "liquid-glass",
+    "classic"
+  ]
+}

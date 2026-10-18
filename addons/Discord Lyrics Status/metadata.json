@@ -1,0 +1,17 @@
+{
+  "name": "Discord Lyrics Status",
+  "type": "addon",
+  "author": "dundut",
+  "description": "Текущая строка песни в статусе Discord: синхронно с музыкой, а после трека возвращается твой обычный статус.",
+  "image": "icon.jpg",
+  "icon": "icon.jpg",
+  "logo": "icon.jpg",
+  "script": "script.js",
+  "tags": [
+    "discord",
+    "lyrics",
+    "status",
+    "sync",
+    "karaoke"
+  ]
+}
