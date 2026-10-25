@@ -445,6 +445,26 @@ html {
 	background-color: var(--nmk-glass-fill-strong) !important;
 }
 
+/* Всплывающие окна и кнопки волны — без backdrop-filter: Chromium применяет
+   его через кадр после появления/наведения, и стекло «вспыхивало» светлее.
+   Вместо размытия — плотная заливка, вид одинаковый с первого кадра. */
+[class*="VibeSettings_toggleSettingsButton"],
+[class*="VibeContextButton_trigger"],
+[class*="TooltipWithTitle_root"],
+[class*="PopoverWithActions_root"],
+[role="menu"],
+[class*="VibeSettings_root"],
+[role="tooltip"],
+[role="listbox"] {
+	backdrop-filter: none !important;
+	background-color: rgba(var(--nmk-navy), 0.82) !important;
+}
+
+[class*="VibeSettings_toggleSettingsButton"],
+[class*="VibeContextButton_trigger"] {
+	background-color: rgba(var(--nmk-navy), 0.55) !important;
+}
+
 /* Центральный блок: в нём лежит сам арт, у блока остаётся только стеклянная кромка */
 [class*="Content_main"] {
 	isolation: isolate;
@@ -518,6 +538,36 @@ html {
 		"navbar content" 1fr
 		"playerbar playerbar" auto
 		"barBelow barBelow" auto / auto 1fr !important;
+	height: 100dvh !important;
+	max-height: 100dvh !important;
+	overflow: hidden !important;
+}
+
+/* Сайдбар и контент ограничены своей строкой сетки и не залезают на плеер,
+   а плеер всегда выше них и никогда не сжимается при малой высоте окна */
+[class*="DefaultLayout_root"]:not([class*="DefaultLayout_rootNewVibe"])
+	[class*="DefaultLayout_navbar"] {
+	grid-area: navbar;
+	min-height: 0;
+	max-height: 100%;
+	align-self: stretch;
+}
+
+[class*="DefaultLayout_root"]:not([class*="DefaultLayout_rootNewVibe"])
+	[class*="Content_root"],
+[class*="DefaultLayout_root"]:not([class*="DefaultLayout_rootNewVibe"])
+	[class*="DefaultLayout_content"] {
+	grid-area: content;
+	min-height: 0;
+}
+
+[class*="DefaultLayout_root"]:not([class*="DefaultLayout_rootNewVibe"])
+	[class*="PlayerBarDesktopWithBackgroundProgressBar_root"] {
+	grid-area: playerbar;
+	position: relative;
+	z-index: 5;
+	flex-shrink: 0;
+	min-height: var(--player-bar-height, 4.5rem);
 }
 
 /* Плеер */
@@ -553,7 +603,8 @@ html {
 		100dvh - var(--player-bar-height, 4.5rem) - var(--ym-spacer-size-m, 1rem) *
 			4
 	) !important;
-	min-height: 31.25rem;
+	min-height: 0;
+	overflow: hidden;
 }
 
 [class*="VibeBlock_root"] {

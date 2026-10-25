@@ -47,6 +47,8 @@ irm https://raw.githubusercontent.com/absolute2007/next-music-themes/main/instal
 | <img src="themes/CYBER GLITCH/icon.png" width="64"> | [CYBER GLITCH](themes/CYBER%20GLITCH) | Киберпанк, глитч-арт и электро-циан |
 | <img src="themes/EVERYTHING WILL FREEZE/icon.png" width="64"> | [EVERYTHING WILL FREEZE](themes/EVERYTHING%20WILL%20FREEZE) | Чёрно-белая тушевая иллюстрация |
 | <img src="themes/Kokou no Sousei/icon.png" width="64"> | [Kokou no Sousei](themes/Kokou%20no%20Sousei) | Кристальное стекло по арту Kokou no Sousei |
+| <img src="themes/Frutiger Aero/icon.png" width="64"> | [Frutiger Aero](themes/Frutiger%20Aero) | Светлое небо, трава, глянцевое стекло и пузыри |
+| <img src="themes/Aquarium/icon.png" width="64"> | [Aquarium](themes/Aquarium) | Живой аквариум с обложки sqwore, бирюзовое стекло |
 
 Все темы с liquid glass, логотипом в заголовке окна и старым интерфейсом «Моей волны».
 Одновременно включайте одну тему.
@@ -56,6 +58,7 @@ irm https://raw.githubusercontent.com/absolute2007/next-music-themes/main/instal
 | | Аддон | |
 | --- | --- | --- |
 | <img src="addons/Discord Lyrics Status/icon.jpg" width="64"> | [Discord Lyrics Status](addons/Discord%20Lyrics%20Status) | Текущая строка песни в статусе Discord |
+| | [Scrobbler](addons/Scrobbler) | Скробблинг в ListenBrainz с офлайн-очередью |
 
 ## Отключение
 

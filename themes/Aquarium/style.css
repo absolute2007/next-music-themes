@@ -1,0 +1,780 @@
+/* AQUARIUM_THEME */
+/*
+ * Aquarium — тема для Next Music
+ * Фон: анимированная обложка sqwore — «Аквариум» (обои Wallpaper Engine «eve sqwore»).
+ *
+ * Видео, пузыри и liquid glass рендерит script.js; здесь бирюзовая палитра
+ * толщи воды, стекло аквариума и раскладка старого интерфейса.
+ */
+
+:root {
+	--nmk-aqua: #3fe0d0;
+	--nmk-aqua-hi: #8ff5ea;
+	--nmk-aqua-lo: #14a89e;
+	--nmk-moon: #ffffff;
+	--nmk-ink: #04222c;
+	--nmk-navy: 6, 46, 58;
+
+	/* Liquid glass: почти прозрачное, лёгкое размытие, форму дают преломление и блики */
+	--nmk-glass-fill: rgba(var(--nmk-navy), 0.08);
+	--nmk-glass-fill-strong: rgba(var(--nmk-navy), 0.62);
+	--nmk-glass-rim: rgba(220, 255, 250, 0.18);
+	--nmk-glass-blur: 2.5px;
+	/* Стекло аквариума: светлая кромка сверху, бирюзовое свечение снизу */
+	--nmk-glass-shine:
+		inset 1.5px 1.5px 0 -0.5px rgba(255, 255, 255, 0.55),
+		inset -1px -1px 0 -0.5px rgba(200, 255, 248, 0.3),
+		inset 0 -1px 0 rgba(160, 255, 240, 0.45),
+		inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+		inset 0 0 22px rgba(255, 255, 255, 0.14),
+		inset 0 -18px 30px -16px rgba(120, 240, 225, 0.4);
+	/* Мягкий блик сверху, как от света над водой */
+	--nmk-glass-sheen: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.1) 0%,
+		rgba(255, 255, 255, 0.03) 40%,
+		rgba(255, 255, 255, 0) 50%,
+		rgba(255, 255, 255, 0) 80%,
+		rgba(150, 245, 235, 0.18) 100%
+	);
+}
+
+/* ---------- Палитра Яндекс Музыки (тёмная всегда: белый текст на бирюзовом стекле) ---------- */
+
+body.ym-dark-theme,
+body.ym-light-theme {
+	color-scheme: dark;
+
+	--ym-background-color-primary-enabled-basic: var(--nmk-ink);
+	--ym-background-color-primary-enabled-content: rgba(var(--nmk-navy), 0.28);
+	--ym-background-color-primary-enabled-header: rgba(var(--nmk-navy), 0.35);
+	--ym-background-color-primary-enabled-menu: var(--nmk-glass-fill-strong);
+	--ym-background-color-primary-enabled-popover: var(--nmk-glass-fill-strong);
+	--ym-background-color-primary-enabled-player: var(--nmk-glass-fill);
+	--ym-background-color-primary-enabled-overlay: rgba(2, 22, 30, 0.4);
+	--ym-background-color-primary-enabled-tooltip: rgba(var(--nmk-navy), 0.8);
+	--ym-background-color-primary-enabled-vibe: transparent;
+	--ym-background-color-primary-enabled-shimmer: rgba(255, 255, 255, 0.06);
+	--ym-background-color-secondary-enabled-blur: rgba(var(--nmk-navy), 0.45);
+	--ym-background-color-secondary-enabled-shimmer: rgba(255, 255, 255, 0.1);
+
+	--ym-surface-color-primary-enabled-list: rgba(255, 255, 255, 0.035);
+	--ym-surface-color-primary-enabled-entity: rgba(255, 255, 255, 0.06);
+	--ym-outline-color-primary-disabled: rgba(255, 255, 255, 0.12);
+
+	--ym-controls-color-accent-default-enabled: var(--nmk-aqua);
+	--ym-controls-color-accent-default-hovered: var(--nmk-aqua-hi);
+	--ym-controls-color-accent-default-pressed: var(--nmk-aqua-lo);
+	--ym-controls-color-accent-default-focused_stroke: var(--nmk-aqua-hi);
+	--ym-controls-color-accent-on_default-enabled: #fff;
+
+	--ym-controls-color-primary-default-enabled: var(--nmk-moon);
+	--ym-controls-color-primary-default-hovered: #fff;
+	--ym-controls-color-primary-on_default-enabled: var(--nmk-ink);
+	--ym-controls-color-primary-text-enabled: rgba(230, 252, 250, 0.82);
+	--ym-controls-color-primary-text-enabled_variant: #ffffff;
+	--ym-controls-color-primary-text-hovered: #fff;
+	--ym-controls-color-primary-text-hovered_variant: #fff;
+
+	--ym-controls-color-secondary-default-enabled: rgba(255, 255, 255, 0.08);
+	--ym-controls-color-secondary-default-hovered: rgba(255, 255, 255, 0.14);
+	--ym-controls-color-secondary-default-pressed: rgba(255, 255, 255, 0.2);
+	--ym-controls-color-secondary-card-enabled: rgba(255, 255, 255, 0.05);
+	--ym-controls-color-secondary-card-hovered: rgba(255, 255, 255, 0.1);
+	--ym-controls-color-secondary-text-enabled: rgba(230, 252, 250, 0.88);
+	--ym-controls-color-secondary-text-enabled_variant: #ffffff;
+	--ym-controls-color-secondary-text-hovered: #fff;
+	--ym-controls-color-secondary-text-selected: #fff;
+	--ym-controls-color-secondary-outline-selected: rgba(63, 224, 208, 0.22);
+	--ym-controls-color-secondary-outline-selected_stroke: var(--nmk-aqua);
+
+	--ym-slider-color-primary-enabled: var(--nmk-aqua);
+	--ym-slider-color-primary-progress: rgba(63, 224, 208, 0.45);
+	--ym-logo-color-primary-text: #ffffff;
+	--ym-logo-color-primary-player: var(--nmk-aqua);
+
+	/* Цвет плеера от обложки перекрывает стекло — гасим его */
+	--player-average-color-background: var(--nmk-glass-fill);
+
+	/* Фон только у html: у body он перекрыл бы сцену с z-index: -1 */
+	background: transparent !important;
+}
+
+html {
+	background-color: #062c36;
+}
+
+/* Белый текст держится на любом участке видео */
+body {
+	text-shadow: 0 1px 2px rgba(2, 22, 30, 0.35);
+}
+
+::selection {
+	background: rgba(63, 224, 208, 0.45);
+	color: #fff;
+}
+
+/* Тонкий голубой скроллбар без стрелок. !important нужен: Яндекс задаёт
+   контейнерам скроллбар ~24px по классу, и он съедал полосу справа */
+::-webkit-scrollbar {
+	width: 6px !important;
+	height: 6px !important;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+	background: transparent !important;
+}
+
+::-webkit-scrollbar-button {
+	display: none !important;
+	width: 0 !important;
+	height: 0 !important;
+}
+
+::-webkit-scrollbar-thumb {
+	min-height: 40px;
+	border: 1px solid transparent !important;
+	border-radius: 999px !important;
+	background: rgba(63, 224, 208, 0.5) padding-box !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(63, 224, 208, 0.8) padding-box !important;
+}
+
+/* ---------- Каркас: прозрачная подложка, фон рисует .nmk-stage--bg ---------- */
+
+[class*="CommonLayout_root"],
+[class*="DefaultLayout_root"],
+[class*="DefaultLayout_rootNewVibe"] {
+	background: transparent !important;
+}
+
+/* ---------- Сцена с артом (создаётся в script.js) ---------- */
+
+.nmk-stage {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	overflow: hidden;
+	pointer-events: none;
+	container-type: size;
+	--fx: 0.4;
+	--fy: 0.5;
+	/* громкость, атака, бас, середина, верха — пишет script.js */
+	--lv: 0;
+	--bt: 0;
+	--lo: 0;
+	--mi: 0;
+	--hi: 0;
+}
+
+.nmk-stage--bg {
+	position: fixed;
+	--fx: 0.4;
+	--fy: 0.5;
+}
+
+/* Арт центрального блока: высота блока, уезжает вверх вместе с прокруткой */
+.nmk-stage--panel {
+	--fx: 0.45;
+	--fy: 0.5;
+	bottom: auto;
+	height: 100%;
+	border-radius: 0;
+	border-radius: inherit;
+	-webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+	mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+}
+
+.nmk-stage--fs {
+	--fx: 0.4;
+	--fy: 0.5;
+}
+
+.nmk-stage--fs .nmk-img {
+	/* Без blur: размытие видео пересчитывалось каждый кадр */
+	filter: brightness(0.55) saturate(0.8) hue-rotate(-6deg);
+}
+
+.nmk-stage--fs .nmk-scrim {
+	background: radial-gradient(
+		ellipse at 30% 50%,
+		rgba(3, 30, 40, 0.55) 0%,
+		rgba(3, 30, 40, 0.25) 60%,
+		rgba(3, 30, 40, 0.6) 100%
+	);
+}
+
+/* Видео ведёт себя как background-size: cover, девочка у стекла всегда в кадре */
+.nmk-art {
+	position: absolute;
+	width: max(100cqw, 100cqh * 16 / 9);
+	aspect-ratio: 16 / 9;
+	left: calc((100cqw - max(100cqw, 100cqh * 16 / 9)) * var(--fx));
+	top: calc((100cqh - max(100cqh, 100cqw * 9 / 16)) * var(--fy));
+	container-type: inline-size;
+}
+
+.nmk-img {
+	position: absolute;
+	inset: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Оригинал очень яркий — приглушаем в холодную бирюзу, как в глубине аквариума */
+.nmk-stage--bg .nmk-img {
+	filter: brightness(0.78) saturate(0.8) hue-rotate(-6deg) contrast(1.05);
+}
+
+/* В центральном блоке ещё темнее под текст */
+.nmk-stage--panel .nmk-img {
+	filter: brightness(0.68) saturate(0.8) hue-rotate(-6deg) contrast(1.05);
+}
+
+/* Затемнение под контентом центрального блока */
+.nmk-scrim {
+	position: absolute;
+	inset: 0;
+	background:
+		linear-gradient(
+			90deg,
+			rgba(3, 30, 40, 0.7) 0%,
+			rgba(3, 30, 40, 0.35) 42%,
+			rgba(3, 30, 40, 0.1) 70%
+		),
+		linear-gradient(0deg, rgba(3, 30, 40, 0.6) 0%, rgba(3, 30, 40, 0) 45%);
+}
+
+.nmk-stage--bg .nmk-scrim {
+	background: radial-gradient(
+		ellipse at 45% 35%,
+		rgba(3, 30, 40, 0) 0%,
+		rgba(3, 30, 40, 0.35) 90%
+	);
+}
+
+/* Пузыри */
+.nmk-petal {
+	position: absolute;
+	bottom: -8%;
+	width: 2.2vmin;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.95) 0 9%, rgba(255, 255, 255, 0.18) 22% 58%, rgba(160, 255, 240, 0.35) 78%, rgba(255, 255, 255, 0.75) 96%, transparent 100%);
+	box-shadow: 0 0 1.4vmin rgba(160, 255, 240, 0.45);
+	opacity: 0.6;
+	animation: nmk-rise var(--d, 14s) linear var(--delay, 0s) infinite;
+}
+
+@keyframes nmk-rise {
+	0% {
+		transform: translate3d(0, 0, 0);
+	}
+	50% {
+		transform: translate3d(var(--sway, 6vw), -55vh, 0);
+	}
+	100% {
+		transform: translate3d(calc(var(--sway, 6vw) * -0.4), -115vh, 0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nmk-petal {
+		animation: none;
+		display: none;
+	}
+}
+
+/* ---------- Liquid glass ---------- */
+
+.nmk-glass,
+[class*="DefaultLayout_navbar"],
+[class*="PlayerBarDesktopWithBackgroundProgressBar_root"],
+[class*="VibeSettings_toggleSettingsButton"],
+[class*="VibeContextButton_trigger"],
+[class*="PlayQueue_root"],
+[class*="TooltipWithTitle_root"],
+[class*="PopoverWithActions_root"],
+[class*="SearchPlaylistInput_root"],
+[role="menu"],
+[class*="VibeSettings_root"],
+[class*="TrackLyricsModal_root"],
+[role="tooltip"],
+[role="listbox"] {
+	background-color: var(--nmk-glass-fill) !important;
+	background-image: var(--nmk-glass-sheen) !important;
+	border: 1px solid var(--nmk-glass-rim) !important;
+	box-shadow:
+		var(--nmk-glass-shine),
+		0 8px 24px rgba(2, 22, 30, 0.35) !important;
+	backdrop-filter: blur(var(--nmk-glass-blur)) saturate(160%)
+		var(--nmk-refract, ) brightness(1.08) !important;
+}
+
+[role="menu"],
+[role="listbox"] {
+	background-color: var(--nmk-glass-fill-strong) !important;
+}
+
+/* Всплывающие окна и кнопки волны — без backdrop-filter: Chromium применяет
+   его через кадр после появления/наведения, и стекло «вспыхивало» светлее.
+   Вместо размытия — плотная заливка, вид одинаковый с первого кадра. */
+[class*="VibeSettings_toggleSettingsButton"],
+[class*="VibeContextButton_trigger"],
+[class*="TooltipWithTitle_root"],
+[class*="PopoverWithActions_root"],
+[role="menu"],
+[class*="VibeSettings_root"],
+[role="tooltip"],
+[role="listbox"] {
+	backdrop-filter: none !important;
+	background-color: rgba(var(--nmk-navy), 0.82) !important;
+}
+
+[class*="VibeSettings_toggleSettingsButton"],
+[class*="VibeContextButton_trigger"] {
+	background-color: rgba(var(--nmk-navy), 0.55) !important;
+}
+
+/* Центральный блок: в нём лежит сам арт, у блока остаётся только стеклянная кромка */
+[class*="Content_main"] {
+	isolation: isolate;
+	background: rgba(4, 40, 50, 0.3) !important;
+	backdrop-filter: blur(24px) saturate(150%);
+	border: 1px solid var(--nmk-glass-rim) !important;
+	/* Только внутренний блик: большая внешняя тень темнила углы квадратом */
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.3),
+		inset 0 0 0 1px rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Навигация и плеер: стекло на ::before, а не на самом элементе.
+   backdrop-filter делает элемент контейнером для position: fixed, и меню
+   аккаунта (fixed внутри сайдбара) обрезалось его границами. */
+[class*="DefaultLayout_navbar"],
+[class*="PlayerBarDesktopWithBackgroundProgressBar_root"] {
+	isolation: isolate;
+	overflow: visible !important;
+}
+
+/* Выше центрального блока, чтобы меню аккаунта не уходило под него */
+[class*="DefaultLayout_navbar"] {
+	position: relative;
+	z-index: 3;
+	border-radius: var(--ym-radius-size-xl, 24px);
+}
+
+[class*="DefaultLayout_navbar"][class],
+[class*="PlayerBarDesktopWithBackgroundProgressBar_root"][class] {
+	background: none !important;
+	border-color: transparent !important;
+	box-shadow: none !important;
+	backdrop-filter: none !important;
+}
+
+[class*="DefaultLayout_navbar"]::before,
+[class*="PlayerBarDesktopWithBackgroundProgressBar_root"]::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	border-radius: inherit;
+	border: 1px solid var(--nmk-glass-rim);
+	background-color: var(--nmk-glass-fill);
+	background-image: var(--nmk-glass-sheen);
+	box-shadow:
+		var(--nmk-glass-shine),
+		0 8px 24px rgba(2, 22, 30, 0.35);
+	backdrop-filter: blur(var(--nmk-glass-blur)) saturate(160%)
+		var(--nmk-refract, ) brightness(1.08);
+}
+
+/* Блик по кромке: свет падает сверху слева и отражается в нижнем правом углу */
+[class*="DefaultLayout_navbar"]::after,
+[class*="PlayerBarDesktopWithBackgroundProgressBar_root"]::after,
+[role="menu"]::after,
+[class*="VibeSettings_root"]::after,
+[class*="TrackLyricsModal_root"]::after,
+.UserWidget-Dialog::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	pointer-events: none;
+	border-radius: inherit;
+	padding: 1.5px;
+	background: linear-gradient(
+		135deg,
+		rgba(255, 255, 255, 0.85) 0%,
+		rgba(255, 255, 255, 0.15) 22%,
+		rgba(255, 255, 255, 0) 45%,
+		rgba(255, 255, 255, 0) 60%,
+		rgba(170, 255, 245, 0.2) 82%,
+		rgba(255, 255, 255, 0.6) 100%
+	);
+	-webkit-mask:
+		linear-gradient(#000 0 0) content-box,
+		linear-gradient(#000 0 0);
+	-webkit-mask-composite: xor;
+	mask-composite: exclude;
+}
+
+[class*="NavbarDesktop_root"] {
+	background: transparent !important;
+}
+
+/* Next Music поднимает сайдбар на 16px — выравниваем по верху центрального блока */
+[class*="DefaultLayout_navbar"] {
+	margin-top: 0 !important;
+}
+
+[class*="NavbarDesktop_collapseButton"] {
+	display: none !important;
+}
+
+/* Старая раскладка: плеер внизу на всю ширину окна, сайдбар заканчивается над ним */
+[class*="DefaultLayout_root"]:not([class*="DefaultLayout_rootNewVibe"]) {
+	grid-template:
+		"navbar content" 1fr
+		"playerbar playerbar" auto
+		"barBelow barBelow" auto / auto 1fr !important;
+	height: 100dvh !important;
+	max-height: 100dvh !important;
+	overflow: hidden !important;
+}
+
+/* Сайдбар и контент ограничены своей строкой сетки и не залезают на плеер,
+   а плеер всегда выше них и никогда не сжимается при малой высоте окна */
+[class*="DefaultLayout_root"]:not([class*="DefaultLayout_rootNewVibe"])
+	[class*="DefaultLayout_navbar"] {
+	grid-area: navbar;
+	min-height: 0;
+	max-height: 100%;
+	align-self: stretch;
+}
+
+[class*="DefaultLayout_root"]:not([class*="DefaultLayout_rootNewVibe"])
+	[class*="Content_root"],
+[class*="DefaultLayout_root"]:not([class*="DefaultLayout_rootNewVibe"])
+	[class*="DefaultLayout_content"] {
+	grid-area: content;
+	min-height: 0;
+}
+
+[class*="DefaultLayout_root"]:not([class*="DefaultLayout_rootNewVibe"])
+	[class*="PlayerBarDesktopWithBackgroundProgressBar_root"] {
+	grid-area: playerbar;
+	position: relative;
+	z-index: 5;
+	flex-shrink: 0;
+	min-height: var(--player-bar-height, 4.5rem);
+}
+
+/* Плеер */
+[class*="PlayerBarDesktopWithBackgroundProgressBar_player"] {
+	border-color: transparent !important;
+}
+
+[class*="BaseSonataControlsDesktop_playButtonIcon"] {
+	color: #fff;
+	filter: drop-shadow(0 0 6px rgba(63, 224, 208, 0.65));
+}
+
+/* Строки треков и карточки — лёгкое стекло без backdrop (их сотни) */
+[class*="CommonTrack_root"] {
+	border-radius: 12px;
+	transition: background-color 0.18s ease;
+}
+
+[class*="CommonTrack_root"]:hover {
+	background-color: rgba(255, 255, 255, 0.06) !important;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[class*="EntityCard_root"]:hover img {
+	filter: drop-shadow(0 10px 28px rgba(63, 224, 208, 0.28));
+}
+
+/* ---------- Старый интерфейс «Моей волны» на главной ---------- */
+
+/* Блок волны занимает весь центральный блок, арт виден сквозь него */
+[class*="MainPage_vibe"]:not([class*="MainPage_vibeWidgetContainer"]) {
+	height: calc(
+		100dvh - var(--player-bar-height, 4.5rem) - var(--ym-spacer-size-m, 1rem) *
+			4
+	) !important;
+	min-height: 0;
+	overflow: hidden;
+}
+
+[class*="VibeBlock_root"] {
+	background: transparent !important;
+}
+
+/* Анимация волны закрывала арт цветными пятнами — убираем */
+[class*="VibeBlock_vibeAnimation"] {
+	display: none !important;
+}
+
+[class*="VibeSettings_toggleSettingsButton"] {
+	border-radius: 999px !important;
+}
+
+/* Новый интерфейс, если эксперимент не применился */
+[class*="DefaultLayout_rootNewVibe"] [class*="Content_main"] {
+	border: none !important;
+	box-shadow: none !important;
+}
+
+/* ---------- Заголовок окна Next Music ---------- */
+
+[class*="TitleBar_nextText"] {
+	display: none !important;
+}
+
+.nmk-brand {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	translate: -50% -50%;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	pointer-events: none;
+	white-space: nowrap;
+	font-family: var(--ym-font-heading, inherit);
+	font-size: 12px;
+	font-weight: 800;
+	letter-spacing: 0.32em;
+	color: #effffc;
+	text-shadow: 0 0 12px rgba(63, 224, 208, 0.45);
+}
+
+.nmk-brand svg {
+	width: 20px;
+	height: 20px;
+	flex: none;
+	filter: drop-shadow(0 0 6px rgba(63, 224, 208, 0.55));
+}
+
+.nmk-brand b {
+	color: var(--nmk-aqua);
+	font-weight: inherit;
+}
+
+/* ---------- Полноэкранный плеер, очередь, текст ---------- */
+
+/* Цвет обложки больше не красит фон: под плеером арт темы */
+[class*="FullscreenPlayerDesktop_root"],
+[class*="TrackLyricsModal_root"] {
+	--player-average-color-background: rgba(4, 40, 50, 0.55) !important;
+}
+
+[class*="FullscreenPlayerDesktop_root"] {
+	isolation: isolate;
+	background: var(--nmk-ink) !important;
+}
+
+[class*="FullscreenPlayerDesktopPoster_cover"] {
+	border-radius: 20px !important;
+	box-shadow:
+		0 0 0 1px rgba(255, 255, 255, 0.14),
+		0 24px 70px rgba(0, 0, 0, 0.6),
+		0 0 60px rgba(63, 224, 208, 0.18) !important;
+}
+
+[class*="FullscreenPlayerDesktopControls_root"] {
+	border-radius: 20px;
+	background-color: rgba(4, 40, 50, 0.45) !important;
+	backdrop-filter: blur(6px);
+}
+
+[class*="FullscreenPlayerDesktop_closeButton"],
+[class*="SonataFullscreenControlsDesktop_sonataButton__"]:not([class*="sonataPlayButton"]),
+[class*="FullscreenPlayerDesktopControls_playQueueButton"],
+[class*="FullscreenPlayerDesktopControls_menuButton"],
+[class*="FullscreenPlayerDesktopControls_likeButton"],
+[class*="FullscreenPlayerDesktopControls_syncLyricsButton"],
+[class*="FullscreenPlayerDesktopControls_speedButton"] {
+	background-color: rgba(255, 255, 255, 0.08) !important;
+	background-image: var(--nmk-glass-sheen) !important;
+	box-shadow: var(--nmk-glass-shine) !important;
+	backdrop-filter: blur(10px) saturate(180%) !important;
+}
+
+[class*="SonataFullscreenControlsDesktop_sonataPlayButton"] {
+	color: #fff !important;
+	box-shadow: 0 0 24px rgba(63, 224, 208, 0.55);
+}
+
+[class*="SonataFullscreenControlsDesktop_sonataPlayButton"] svg {
+	color: #fff !important;
+	fill: currentColor;
+	opacity: 1 !important;
+}
+
+/* Очередь: плавающая стеклянная карточка под кнопкой «свернуть», по высоте содержимого */
+/* Без backdrop-filter: Chromium включал его в конце анимации открытия, и очередь
+   резко светлела и мутнела. Под ней и так размытое видео, вид тот же. */
+[class*="PlayQueue_root"] {
+	border-radius: 24px !important;
+	overflow: hidden;
+	backdrop-filter: none !important;
+	background-color: rgba(var(--nmk-navy), 0.42) !important;
+}
+
+[class*="FullscreenPlayerDesktopContent_additionalContent"] {
+	display: flex;
+	flex-direction: column;
+	padding: 96px 32px 32px 0;
+	box-sizing: border-box;
+}
+
+[class*="FullscreenPlayerDesktopContent_additionalContent"] [class*="PlayQueue_root"] {
+	position: relative !important;
+	inset: auto !important;
+	height: auto !important;
+	max-height: 100%;
+	flex: 0 1 auto;
+	min-height: 0;
+}
+
+[class*="FullscreenPlayerDesktopContent_additionalContent"] [class*="PlayQueue_content"] {
+	height: auto !important;
+	flex: 1 1 auto;
+	min-height: 0;
+	margin: 0 !important;
+}
+
+[class*="FullscreenPlayerDesktopContent_additionalContent"] [class*="PlayQueue_scrollContent"] {
+	padding: 16px 8px !important;
+}
+
+/* Яндекс резервирует под «Далее в очереди» полэкрана, чтобы докручивать текущий трек
+   к центру; в карточке по высоте содержимого это пустое место */
+[class*="FullscreenPlayerDesktopContent_additionalContent"] [class*="PlayQueueAfterPlayingBlock_root"] {
+	min-height: 0 !important;
+}
+
+/* Затухания сверху и снизу были прямоугольными подложками внутри карточки */
+[class*="PlayQueue_root"]::before,
+[class*="PlayQueue_root"]::after {
+	display: none !important;
+}
+
+[class*="PlayQueueTitle_root"],
+[class*="PlayQueueAfterPlayingBlock_title"] {
+	color: #effffc;
+	letter-spacing: 0.02em;
+}
+
+[class*="PlayQueueNowPlayingBlock_track"] {
+	background-color: rgba(63, 224, 208, 0.14) !important;
+	box-shadow:
+		inset 0 0 0 1px rgba(63, 224, 208, 0.35),
+		0 0 24px rgba(63, 224, 208, 0.15);
+}
+
+/* Синхронный текст: прямоугольные затухания Яндекса заменены маской */
+[class*="SyncLyrics_content"]::before,
+[class*="SyncLyrics_content"]::after {
+	display: none !important;
+}
+
+[class*="SyncLyrics_content"] {
+	-webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
+	mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
+}
+
+[class*="SyncLyricsLine_root"] {
+	color: rgba(226, 250, 246, 0.92) !important;
+}
+
+[class*="SyncLyricsScroller_line_active"] [class*="SyncLyricsLine_root"] {
+	color: #fff !important;
+	text-shadow:
+		0 0 18px rgba(63, 224, 208, 0.75),
+		0 0 42px rgba(63, 224, 208, 0.35);
+}
+
+[class*="SyncLyricsScroller_counterLine"] {
+	color: var(--nmk-aqua);
+}
+
+/* Окно обычного текста песни */
+[class*="TrackLyricsModal_root"] {
+	border-radius: 24px !important;
+}
+
+[class*="TrackLyricsModal_content"] {
+	color: rgba(226, 250, 246, 0.9);
+	line-height: 1.6;
+}
+
+/* ---------- Списки треков ---------- */
+
+[class*="CommonTrack_root"] {
+	background-color: rgba(255, 255, 255, 0.025);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+[class*="CommonTrack_root"][aria-selected="true"],
+[class*="CommonTrack_root"]:has([class*="PlayButtonWithCover_playButton"][aria-label="Пауза"]) {
+	background-color: rgba(63, 224, 208, 0.12) !important;
+	box-shadow: inset 0 0 0 1px rgba(63, 224, 208, 0.3);
+}
+
+/* ---------- Оверлейный скроллбар центрального блока ---------- */
+
+.nmk-scrollthumb {
+	position: absolute;
+	top: 0;
+	right: 3px;
+	z-index: 10;
+	width: 5px;
+	border-radius: 999px;
+	background: rgba(63, 224, 208, 0.65);
+	box-shadow: 0 0 8px rgba(63, 224, 208, 0.45);
+	opacity: 0;
+	cursor: pointer;
+	transition:
+		opacity 0.3s ease,
+		width 0.15s ease;
+	will-change: transform;
+}
+
+/* Виден при прокрутке и при наведении на центральный блок */
+[class*="Content_main"]:hover > .nmk-scrollthumb,
+.nmk-scrollthumb--active,
+.nmk-scrollthumb--drag {
+	opacity: 1;
+}
+
+.nmk-scrollthumb:hover,
+.nmk-scrollthumb--drag {
+	width: 8px;
+	background: rgba(63, 224, 208, 0.9);
+}
+
+/* ---------- Меню аккаунта (Яндекс ID) ---------- */
+
+.UserWidget-Dialog {
+	border-radius: 24px !important;
+	border: 1px solid var(--nmk-glass-rim) !important;
+	background-color: rgba(var(--nmk-navy), 0.62) !important;
+	background-image: var(--nmk-glass-sheen) !important;
+	box-shadow:
+		var(--nmk-glass-shine),
+		0 18px 50px rgba(0, 0, 0, 0.45) !important;
+	backdrop-filter: blur(20px) saturate(180%) !important;
+}
+
+.UserWidget-Dialog * {
+	--color-bg-default: transparent;
+}

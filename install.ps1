@@ -121,6 +121,16 @@ try {
 		}
 		Copy-Item $entry.Path $target -Recurse
 		Write-Host "Установлено: $($entry.Name)" -ForegroundColor Green
+
+		# Фоновый помощник аддона (например, прокси VK): скрытый автозапуск при входе в Windows и запуск сейчас
+		$helper = Get-ChildItem $target -Filter '*-proxy.vbs' -ErrorAction SilentlyContinue | Select-Object -First 1
+		if ($helper -and $ManageApp) {
+			$runKey = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run'
+			$valueName = "NextMusic $($entry.Name) $($helper.BaseName)"
+			Set-ItemProperty -Path $runKey -Name $valueName -Value "wscript.exe //B `"$($helper.FullName)`""
+			Start-Process wscript.exe -ArgumentList '//B', "`"$($helper.FullName)`""
+			Write-Step "запущен фоновый помощник $($helper.BaseName)"
+		}
 	}
 
 	if ($ManageApp -and -not $NoRestart -and (Test-Path $ExePath)) {

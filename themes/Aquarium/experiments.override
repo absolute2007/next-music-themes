@@ -1,0 +1,5 @@
+# Classic home and Моя волна settings instead of the new wave wheel.
+# Next Music reads this file when the theme is enabled.
+WebNextNewWaveTab = "default"
+WebNextNewWaveTabFeedbackForm = "default"
+WebNextMainPlayerAnimation = "default"

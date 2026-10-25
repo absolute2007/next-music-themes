@@ -1,0 +1,24 @@
+{
+  "name": "Frutiger Aero",
+  "type": "theme",
+  "author": "dundut",
+  "description": "Светлая тема в стиле Frutiger Aero по фото: голубое небо, зелёные холмы, глянцевое стекло на всех панелях, классический интерфейс и баннер Моей волны.",
+  "image": "icon.png",
+  "icon": "icon.png",
+  "logo": "logo.png",
+  "banner": "banner.png",
+  "css": "style.css",
+  "script": "script.js",
+  "allowedUrls": [
+    "http://127.0.0.1:2007/"
+  ],
+  "tags": [
+    "frutiger-aero",
+    "aero",
+    "glossy",
+    "light",
+    "classic",
+    "photo",
+    "vibe-classic"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "External Sources",
+  "type": "addon",
+  "author": "dundut",
+  "description": "Вкладка «Сторонние треки»: поиск музыки в VK, Bandcamp, Zaycev и Internet Archive и загрузка в свой аккаунт Яндекс Музыки — в плейлист или «Мне нравится».",
+  "css": "style.css",
+  "script": "script.js",
+  "tags": [
+    "search",
+    "upload",
+    "ugc",
+    "vk",
+    "bandcamp",
+    "zaycev"
+  ]
+}

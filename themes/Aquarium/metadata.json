@@ -1,0 +1,24 @@
+{
+  "name": "Aquarium",
+  "type": "theme",
+  "author": "dundut",
+  "description": "Живой аквариум с обложки sqwore — «Аквариум»: кит, скаты и рыбы плывут на фоне, бирюзовое стекло, пузыри и старый интерфейс.",
+  "image": "icon.png",
+  "icon": "icon.png",
+  "logo": "logo.png",
+  "banner": "banner.png",
+  "css": "style.css",
+  "script": "script.js",
+  "allowedUrls": [
+    "http://127.0.0.1:2007/"
+  ],
+  "tags": [
+    "sqwore",
+    "aquarium",
+    "animated",
+    "video",
+    "liquid-glass",
+    "dark",
+    "classic"
+  ]
+}

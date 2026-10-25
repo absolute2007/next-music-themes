@@ -1,0 +1,13 @@
+{
+  "name": "Scrobbler",
+  "type": "addon",
+  "author": "dundut",
+  "description": "Скробблинг прослушанных треков в ListenBrainz с офлайн-очередью.",
+  "script": "script.js",
+  "tags": [
+    "listenbrainz",
+    "scrobble",
+    "history",
+    "stats"
+  ]
+}

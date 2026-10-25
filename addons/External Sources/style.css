@@ -1,0 +1,202 @@
+/* External Sources: вкладка «Сторонние треки». Цвета берутся из переменных Яндекс Музыки, чтобы подходить любой теме. */
+
+#nm-ext-sources-view {
+  --nm-text: var(--ym-controls-color-primary-text-enabled, var(--ym-text-color-primary, #fff));
+  --nm-muted: var(--ym-controls-color-secondary-text-enabled, var(--ym-text-color-secondary, #9a9a9a));
+  --nm-line: rgba(128, 128, 128, 0.22);
+  --nm-hover: rgba(128, 128, 128, 0.14);
+  --nm-field: rgba(128, 128, 128, 0.14);
+  --nm-panel: var(--ym-background-color-primary-enabled-popover, #242424);
+  --nm-accent: #ffdb4d;
+  --nm-on-accent: #121212;
+  --nm-ok: #3ec46d;
+  --nm-err: #ef5350;
+
+  position: fixed;
+  z-index: auto;
+  overflow: hidden auto;
+  display: none;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 24px 32px 120px;
+  color: var(--nm-text);
+  font-family: var(--ym-font-text, YSText, -apple-system, "Segoe UI", Roboto, Arial, sans-serif);
+}
+
+.nm-ext-nav-item { list-style: none; }
+
+#nm-ext-sources-view > * { flex-shrink: 0; width: 100%; max-width: 920px; margin-left: auto; margin-right: auto; box-sizing: border-box; }
+
+/* Заголовок */
+.nm-ext-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.nm-ext-title { margin: 0 0 4px; font-size: 28px; font-weight: 700; letter-spacing: -0.01em; }
+.nm-ext-subtitle { margin: 0; font-size: 14px; color: var(--nm-muted); }
+
+/* Кнопки-иконки */
+.nm-ext-icon-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; padding: 0; flex-shrink: 0;
+  background: transparent; border: none; border-radius: 8px;
+  color: var(--nm-muted); cursor: pointer;
+  transition: background-color .12s, color .12s;
+}
+.nm-ext-icon-btn:hover, .nm-ext-icon-btn.active { background: var(--nm-hover); color: var(--nm-text); }
+.nm-ext-like:hover { color: var(--nm-err); }
+
+/* Поиск */
+.nm-ext-search { position: relative; margin-bottom: 14px; }
+.nm-ext-search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); display: flex; color: var(--nm-muted); pointer-events: none; }
+.nm-ext-input {
+  width: 100%; height: 44px; box-sizing: border-box; padding: 0 40px 0 40px;
+  font: inherit; font-size: 15px; color: var(--nm-text);
+  background: var(--nm-field); border: 1px solid transparent; border-radius: 10px; outline: none;
+  transition: border-color .12s, background-color .12s;
+}
+.nm-ext-input:focus { border-color: var(--nm-accent); }
+.nm-ext-input::placeholder { color: var(--nm-muted); }
+.nm-ext-clear {
+  position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+  width: 28px; height: 28px; border: none; border-radius: 6px; background: transparent;
+  color: var(--nm-muted); font-size: 20px; line-height: 1; cursor: pointer;
+}
+.nm-ext-clear:hover { background: var(--nm-hover); color: var(--nm-text); }
+.nm-ext-clear[hidden], .nm-ext-settings[hidden] { display: none; }
+
+/* Источники */
+.nm-ext-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.nm-ext-chip {
+  position: relative; height: 32px; padding: 0 14px;
+  font: inherit; font-size: 13px; font-weight: 500; color: var(--nm-text);
+  background: var(--nm-field); border: none; border-radius: 16px; cursor: pointer;
+  transition: background-color .12s;
+}
+.nm-ext-chip:hover { background: var(--nm-hover); }
+.nm-ext-chip.active { background: var(--nm-accent); color: var(--nm-on-accent); }
+.nm-ext-chip-dot { display: inline-block; width: 6px; height: 6px; margin-left: 6px; border-radius: 50%; background: var(--nm-err); vertical-align: middle; }
+
+/* Настройки */
+.nm-ext-settings { margin-bottom: 18px; }
+.nm-ext-card { padding: 16px; margin-bottom: 8px; background: var(--nm-field); border: 1px solid var(--nm-line); border-radius: 12px; }
+.nm-ext-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.nm-ext-card-title { font-size: 16px; font-weight: 600; }
+.nm-ext-badge { padding: 2px 8px; font-size: 12px; color: var(--nm-muted); border: 1px solid var(--nm-line); border-radius: 10px; }
+.nm-ext-badge.on { color: var(--nm-ok); border-color: currentColor; }
+.nm-ext-card-text, .nm-ext-card-hint { margin: 0 0 12px; font-size: 13px; line-height: 1.45; color: var(--nm-muted); }
+.nm-ext-card-hint { margin: 12px 0 0; font-size: 12px; }
+.nm-ext-field { margin-bottom: 12px; }
+.nm-ext-field .nm-ext-input { padding-left: 14px; background: rgba(0, 0, 0, 0.18); }
+.nm-ext-card-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.nm-ext-btn {
+  display: inline-flex; align-items: center; height: 34px; padding: 0 14px;
+  font: inherit; font-size: 13px; font-weight: 500; color: var(--nm-text); text-decoration: none;
+  background: var(--nm-hover); border: none; border-radius: 8px; cursor: pointer;
+}
+.nm-ext-btn:hover { background: rgba(128, 128, 128, 0.26); }
+.nm-ext-btn.primary { background: var(--nm-accent); color: var(--nm-on-accent); }
+.nm-ext-btn.primary:hover { filter: brightness(1.06); }
+.nm-ext-card-status { min-height: 18px; margin: 10px 0 0; font-size: 13px; color: var(--nm-muted); }
+.nm-ext-card-status.ok { color: var(--nm-ok); }
+.nm-ext-card-status.err { color: var(--nm-err); }
+.nm-ext-link { padding: 0; font: inherit; color: var(--nm-accent); background: none; border: none; cursor: pointer; text-decoration: underline; }
+
+/* Результаты */
+.nm-ext-list { display: flex; flex-direction: column; }
+.nm-ext-row {
+  display: grid; grid-template-columns: 44px minmax(0, 1fr) 110px 52px auto;
+  align-items: center; gap: 12px; min-height: 60px; padding: 6px 8px; border-radius: 8px;
+  transition: background-color .1s;
+}
+.nm-ext-row:hover, .nm-ext-row.previewing { background: var(--nm-hover); }
+
+.nm-ext-cover {
+  position: relative; width: 44px; height: 44px; padding: 0; overflow: hidden;
+  background: var(--nm-field); border: none; border-radius: 6px; color: #fff; cursor: pointer;
+}
+.nm-ext-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.nm-ext-cover-icon {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity .12s;
+}
+.nm-ext-row:hover .nm-ext-cover-icon, .nm-ext-row.previewing .nm-ext-cover-icon { opacity: 1; }
+.nm-ext-cover.loading .nm-ext-cover-icon { opacity: 1; animation: nm-ext-pulse 1s ease-in-out infinite; }
+
+.nm-ext-meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.nm-ext-track-title, .nm-ext-track-artist { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.nm-ext-track-title { font-size: 15px; font-weight: 500; }
+.nm-ext-track-artist { font-size: 13px; color: var(--nm-muted); }
+.nm-ext-source { font-size: 12px; color: var(--nm-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nm-ext-duration { font-size: 13px; color: var(--nm-muted); text-align: right; font-variant-numeric: tabular-nums; }
+
+.nm-ext-actions { display: flex; align-items: center; justify-content: flex-end; gap: 2px; min-width: 76px; }
+.nm-ext-status { display: inline-flex; align-items: center; gap: 8px; max-width: 190px; margin-right: 4px; font-size: 13px; color: var(--nm-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nm-ext-status.ok { color: var(--nm-ok); }
+.nm-ext-status.err { color: var(--nm-err); }
+
+/* Состояния */
+.nm-ext-empty { display: flex; flex-direction: column; align-items: center; padding: 56px 20px; text-align: center; }
+.nm-ext-empty-title { margin: 0 0 6px; font-size: 18px; font-weight: 600; }
+.nm-ext-empty-text { max-width: 440px; margin: 0 0 6px; font-size: 14px; line-height: 1.45; color: var(--nm-muted); }
+.nm-ext-note { margin-top: 12px; padding: 10px 12px; font-size: 13px; color: var(--nm-muted); background: var(--nm-field); border-radius: 8px; }
+.nm-ext-note-err { color: var(--nm-err); }
+
+.nm-ext-spinner, .nm-ext-btn-spinner { border-radius: 50%; animation: nm-ext-spin .75s linear infinite; }
+.nm-ext-spinner { width: 24px; height: 24px; margin-bottom: 12px; border: 2px solid var(--nm-line); border-top-color: var(--nm-accent); }
+.nm-ext-btn-spinner { display: inline-block; flex-shrink: 0; width: 12px; height: 12px; border: 2px solid var(--nm-line); border-top-color: var(--nm-accent); }
+.nm-ext-progress { height: 2px; margin-bottom: 8px; background: linear-gradient(90deg, transparent, var(--nm-accent), transparent); background-size: 40% 100%; background-repeat: no-repeat; animation: nm-ext-slide 1.1s linear infinite; }
+
+@keyframes nm-ext-spin { to { transform: rotate(360deg); } }
+@keyframes nm-ext-pulse { 50% { opacity: .45; } }
+@keyframes nm-ext-slide { from { background-position: -40% 0; } to { background-position: 140% 0; } }
+
+/* Меню плейлистов */
+.nm-ext-overlay { position: fixed; inset: 0; z-index: 99998; }
+.nm-ext-menu {
+  position: fixed; z-index: 99999; min-width: 220px; max-width: 300px; max-height: 340px; overflow-y: auto; padding: 4px;
+  color: var(--ym-controls-color-primary-text-enabled, #fff);
+  background: var(--ym-background-color-primary-enabled-popover, #242424);
+  border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 10px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  font-family: var(--ym-font-text, YSText, -apple-system, "Segoe UI", Roboto, Arial, sans-serif);
+}
+.nm-ext-menu-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 10px; font-size: 14px; border-radius: 6px; cursor: pointer; user-select: none; }
+.nm-ext-menu-item:hover { background: rgba(128, 128, 128, 0.18); }
+.nm-ext-menu-item.primary { font-weight: 600; }
+.nm-ext-menu-item span:first-child { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.nm-ext-menu-count { font-size: 12px; opacity: .6; }
+.nm-ext-menu-divider { height: 1px; margin: 4px 6px; background: rgba(128, 128, 128, 0.25); }
+
+@media (max-width: 760px) {
+  #nm-ext-sources-view { padding: 20px 16px 120px; }
+  .nm-ext-row { grid-template-columns: 44px minmax(0, 1fr) auto; }
+  .nm-ext-source, .nm-ext-duration { display: none; }
+}
+
+/* Уведомления поверх вкладки: нативные тосты Яндекса прячутся под ней */
+/* Под вкладкой прячем страницу ЯМ: у тем фон контента часто полупрозрачный */
+.nm-ext-covered { visibility: hidden !important; }
+
+/* Уведомление. Внешний вид даёт нативный класс BaseNotification_root, здесь только позиция,
+   анимация и запасные значения на тех же переменных ЯМ */
+.nm-ext-toast {
+  position: fixed; left: 50%; bottom: calc(var(--player-bar-height, 4.5rem) + var(--ym-spacer-size-xl, 2rem)); z-index: 9999;
+  box-sizing: border-box; display: flex; align-items: center;
+  min-width: 0 !important; max-width: min(560px, calc(100vw - 32px));
+  padding: var(--ym-spacer-size-xs, 8px) var(--ym-spacer-size-m, 16px);
+  min-height: 44px;
+  font: 500 14px/1.4 var(--ym-font-text, YSText, -apple-system, "Segoe UI", Roboto, Arial, sans-serif);
+  color: var(--ym-controls-color-primary-text-enabled, #fff);
+  background-color: var(--ym-background-color-primary-enabled-menu, rgba(40, 40, 40, 0.9));
+  border: 1px solid var(--ym-controls-color-secondary-outline-selected, rgba(255, 255, 255, 0.12));
+  border-radius: var(--ym-radius-size-l, 12px);
+  box-shadow: 0 1px 20px 0 var(--ym-shadow-menu, rgba(0, 0, 0, 0.4));
+  backdrop-filter: blur(14px);
+  opacity: 0; transform: translate(-50%, 8px); pointer-events: none;
+  transition: opacity .15s, transform .15s;
+}
+.nm-ext-toast.show { opacity: 1; transform: translate(-50%, 0); }
+.nm-ext-toast-text { flex-grow: 1; }
+.nm-ext-toast.err .nm-ext-toast-text { color: var(--ym-controls-color-primary-text-enabled_variant, var(--nm-err, #ef5350)); }
+
+.nm-ext-steps { margin: 0 0 14px; padding-left: 20px; font-size: 13px; line-height: 1.5; color: var(--nm-muted); }
+.nm-ext-steps li { margin-bottom: 4px; }
+.nm-ext-steps b { color: var(--nm-text); font-weight: 600; }
+.nm-ext-status.err { max-width: 260px; }
