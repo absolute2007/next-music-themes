@@ -38,7 +38,7 @@ VK отдаёт музыку только приложению Kate Mobile, и �
 ## Установка
 
 ```powershell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/absolute2007/next-music-themes/main/install.ps1))) -Name 'External Sources'
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/tune-music/next-music-themes/main/install.ps1))) -Name 'External Sources'
 ```
 
 Вручную: скопируйте папку `External Sources` в `%APPDATA%\next-music\Addons\` и перезапустите Next Music.

@@ -20,7 +20,7 @@
 Одной командой в PowerShell:
 
 ```powershell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/absolute2007/next-music-themes/main/install.ps1))) -Name 'Kokou no Sousei'
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/tune-music/next-music-themes/main/install.ps1))) -Name 'Kokou no Sousei'
 ```
 
 Установщик закроет Next Music, положит тему в `%APPDATA%\next-music\Addons\Kokou no Sousei`

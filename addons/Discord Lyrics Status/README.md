@@ -18,7 +18,7 @@
 Одной командой в PowerShell:
 
 ```powershell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/absolute2007/next-music-themes/main/install.ps1))) -Name 'Discord Lyrics Status'
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/tune-music/next-music-themes/main/install.ps1))) -Name 'Discord Lyrics Status'
 ```
 
 Установщик закроет Next Music, положит аддон в `%APPDATA%\next-music\Addons\Discord Lyrics Status`

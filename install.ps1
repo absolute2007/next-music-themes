@@ -1,8 +1,8 @@
 # Установщик тем и аддонов для Next Music
-# https://github.com/absolute2007/next-music-themes
+# https://github.com/tune-music/next-music-themes
 #
-# Меню:          irm https://raw.githubusercontent.com/absolute2007/next-music-themes/main/install.ps1 | iex
-# Без меню:      & ([scriptblock]::Create((irm https://raw.githubusercontent.com/absolute2007/next-music-themes/main/install.ps1))) -Name 'Night of Knights'
+# Меню:          irm https://raw.githubusercontent.com/tune-music/next-music-themes/main/install.ps1 | iex
+# Без меню:      & ([scriptblock]::Create((irm https://raw.githubusercontent.com/tune-music/next-music-themes/main/install.ps1))) -Name 'Night of Knights'
 # Из клона:      .\install.ps1 -Name 'CYBER GLITCH','Discord Lyrics Status'
 
 param(
@@ -16,7 +16,7 @@ $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
-$Repo = 'absolute2007/next-music-themes'
+$Repo = 'tune-music/next-music-themes'
 $Branch = 'main'
 $RealAddonsDir = Join-Path $env:APPDATA 'next-music\Addons'
 # Next Music закрываем и перезапускаем, только когда ставим в его настоящую папку

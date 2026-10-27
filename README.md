@@ -8,13 +8,13 @@
 В PowerShell, откроется меню выбора:
 
 ```powershell
-irm https://raw.githubusercontent.com/absolute2007/next-music-themes/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/tune-music/next-music-themes/main/install.ps1 | iex
 ```
 
 Или сразу нужное, через запятую:
 
 ```powershell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/absolute2007/next-music-themes/main/install.ps1))) -Name 'Night of Knights','Discord Lyrics Status'
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/tune-music/next-music-themes/main/install.ps1))) -Name 'Night of Knights','Discord Lyrics Status'
 ```
 
 Установщик сам ставит всё, что нужно теме или аддону:

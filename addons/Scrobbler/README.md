@@ -12,7 +12,7 @@
 ## Установка
 
 ```powershell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/absolute2007/next-music-themes/main/install.ps1))) -Name 'Scrobbler'
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/tune-music/next-music-themes/main/install.ps1))) -Name 'Scrobbler'
 ```
 
 Вручную: скопируйте папку `Scrobbler` в `%APPDATA%\next-music\Addons\` и перезапустите Next Music.
